@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oleh Pavliv — Designer, Creator, Friend</title>
+<meta name="description" content="A tribute to Oleh Pavliv — senior product designer, game maker, mountain wanderer, and a great friend.">
+<style>
+  :root {
+    --ink: #1c1530;
+    --ink-soft: #4a4162;
+    --ink-faint: #7d7495;
+    --paper: #faf9fd;
+    --lav: #c4b5fd;
+    --pink: #f9a8d4;
+    --sky: #a5d8ff;
+    --accent: #7c5cff;
+    --radius: 20px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--lav); color: var(--ink); }
+
+  .mesh {
+    position: fixed; inset: 0; z-index: -1;
+    background:
+      radial-gradient(45% 40% at 15% 10%, rgba(196,181,253,.55), transparent 70%),
+      radial-gradient(40% 35% at 85% 15%, rgba(249,168,212,.45), transparent 70%),
+      radial-gradient(50% 45% at 50% 95%, rgba(165,216,255,.4), transparent 70%),
+      var(--paper);
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  header.hero {
+    min-height: 92vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 96px 0 64px;
+  }
+  .eyebrow {
+    font-size: 14px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin-bottom: 20px;
+  }
+  h1 {
+    font-size: clamp(52px, 9vw, 108px);
+    line-height: 1.02; letter-spacing: -.03em; font-weight: 800;
+  }
+  h1 .thin { font-weight: 300; display: block; color: var(--ink-soft); font-size: .45em; letter-spacing: -.01em; margin-top: 14px; }
+  .hero p.lede {
+    margin-top: 32px; font-size: clamp(18px, 2.4vw, 22px);
+    color: var(--ink-soft); max-width: 560px;
+  }
+  .scroll-hint { margin-top: 56px; color: var(--ink-faint); font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+  .scroll-hint svg { animation: bob 2.2s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0);} 50% { transform: translateY(6px);} }
+
+  section { padding: 88px 0; }
+  h2 {
+    font-size: clamp(28px, 4vw, 40px); letter-spacing: -.02em;
+    font-weight: 700; margin-bottom: 28px;
+  }
+  h2 .hash { color: var(--accent); font-weight: 300; margin-right: 6px; }
+  .prose { color: var(--ink-soft); font-size: 17px; max-width: 640px; }
+  .prose + .prose { margin-top: 18px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-top: 40px; }
+  .card {
+    background: rgba(255,255,255,.65); backdrop-filter: blur(8px);
+    border: 1px solid rgba(124,92,255,.14);
+    border-radius: var(--radius); padding: 28px 24px;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -18px rgba(124,92,255,.35); }
+  .card .glyph { font-size: 28px; margin-bottom: 14px; }
+  .card h3 { font-size: 17px; margin-bottom: 8px; letter-spacing: -.01em; }
+  .card p { font-size: 14.5px; color: var(--ink-soft); }
+
+  .timeline { margin-top: 40px; border-left: 2px solid rgba(124,92,255,.25); padding-left: 28px; max-width: 640px; }
+  .tl-item { position: relative; padding-bottom: 34px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -35px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--pink));
+    box-shadow: 0 0 0 4px rgba(124,92,255,.15);
+  }
+  .tl-item .when { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); font-weight: 600; }
+  .tl-item h3 { font-size: 18px; margin: 4px 0 6px; }
+  .tl-item p { color: var(--ink-soft); font-size: 15px; }
+
+  blockquote {
+    margin: 96px auto; max-width: 720px; text-align: center;
+    font-size: clamp(22px, 3.4vw, 32px); font-weight: 500; line-height: 1.4;
+    letter-spacing: -.015em;
+    background: linear-gradient(100deg, var(--accent), #d6449b 55%, #3b82f6);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    padding: 0 24px;
+  }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; max-width: 640px; }
+  .chip {
+    font-size: 13.5px; font-weight: 600; color: var(--ink-soft);
+    background: rgba(255,255,255,.7); border: 1px solid rgba(124,92,255,.18);
+    padding: 8px 16px; border-radius: 999px;
+  }
+
+  footer {
+    padding: 72px 0 56px; text-align: center; color: var(--ink-faint); font-size: 14.5px;
+  }
+  footer .heart { color: #e0507a; }
+  footer .sig { margin-top: 10px; font-style: italic; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+<div class="mesh"></div>
+
+<header class="hero wrap">
+  <div class="eyebrow">A tribute to a friend</div>
+  <h1>Oleh Pavliv
+    <span class="thin">designer · creator · friend</span>
+  </h1>
+  <p class="lede">Some people make things work. Some make things beautiful. Oleh does both — in pixels, in games, on mountain trails, and in friendship.</p>
+  <span class="scroll-hint">scroll
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+  </span>
+</header>
+
+<section class="wrap reveal" id="craft">
+  <h2><span class="hash">#</span>The craftsman</h2>
+  <p class="prose">Oleh is a senior product designer with nearly a decade of shaping interfaces that people actually enjoy using. Guided by empathy and sharpened by data, he has a rare talent: taking something tangled and making it feel obvious.</p>
+  <p class="prose">At Doorstead he led product design for property management — the kind of unglamorous, high-stakes domain where great design quietly changes everything. Conversion rates more than doubled under his watch. That's not luck; that's craft.</p>
+  <div class="cards">
+    <div class="card"><div class="glyph">🎨</div><h3>Product design</h3><p>Wireframes to high-fidelity, design systems, research, workshops — the full arc of making software humane.</p></div>
+    <div class="card"><div class="glyph">🕹️</div><h3>Game maker</h3><p>Two years of independent game design — Unity, C#, Blender. Building worlds, not just screens.</p></div>
+    <div class="card"><div class="glyph">✏️</div><h3>Artist at heart</h3><p>Drawing, 3D, visual storytelling. The hand behind the tool always shows.</p></div>
+  </div>
+</section>
+
+<blockquote class="reveal">"Guided by empathy and data — advocating for people while making things that simply work."</blockquote>
+
+<section class="wrap reveal" id="journey">
+  <h2><span class="hash">#</span>The journey</h2>
+  <div class="timeline">
+    <div class="tl-item"><span class="when">2015 — 2019</span><h3>Freelance beginnings</h3><p>30+ projects — websites, mobile apps, SaaS platforms, branding for startups. The years where range is built.</p></div>
+    <div class="tl-item"><span class="when">2019 — 2020</span><h3>Chaos Byte &amp; Northell</h3><p>Complex SaaS products, UX research, data-migration platforms — learning to design for depth.</p></div>
+    <div class="tl-item"><span class="when">2020 — 2022</span><h3>Independent game design</h3><p>Following the passion: game design and UI/UX projects on his own terms.</p></div>
+    <div class="tl-item"><span class="when">2022 — 2025</span><h3>Senior Product Designer, Doorstead</h3><p>Leading UI/UX for property management. Sign-to-live rates up from 25% to 65%. Design systems, prototypes, impact.</p></div>
+    <div class="tl-item"><span class="when">Today</span><h3>Budapest, Hungary</h3><p>Still designing, still drawing, still climbing hills — and still the same generous friend.</p></div>
+  </div>
+</section>
+
+<section class="wrap reveal" id="beyond">
+  <h2><span class="hash">#</span>Beyond the screen</h2>
+  <p class="prose">Ask Oleh about frame rates or footpaths and you'll get the same spark. He games and builds games. He hikes and actually looks at the nature around him. He draws because hands need to make things.</p>
+  <div class="chips">
+    <span class="chip">🎮 Gaming &amp; game dev</span>
+    <span class="chip">🥾 Hiking &amp; nature</span>
+    <span class="chip">✍️ Drawing</span>
+    <span class="chip">🇺🇦 Ukrainian, fluent in four worlds</span>
+    <span class="chip">🧊 Blender &amp; Spline 3D</span>
+    <span class="chip">☕ Budapest local</span>
+  </div>
+</section>
+
+<section class="wrap reveal" id="friend">
+  <h2><span class="hash">#</span>The friend</h2>
+  <p class="prose">This site exists for one simple reason: some friendships deserve a monument, even a small one made of pixels. Oleh — for the ideas bounced back and forth, the honest feedback, the shared trails and screens: thank you.</p>
+  <p class="prose">Here's to the next decade of making things worth using, worlds worth playing, and paths worth walking.</p>
+</section>
+
+<footer class="wrap">
+  <div>Built with <span class="heart">♥</span> in tribute to Oleh Pavliv</div>
+  <div class="sig">— from Gergely, a friend</div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
